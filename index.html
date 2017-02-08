@@ -130,38 +130,43 @@
 				</section>
 
 				<section>
-					<h2>asm.js</h2>
+					<section>
+						<h2>WebAssembly</h2>
 
-					<p> An extraordinarily optimizable, low-level subset of JavaScript </p>
+						<p> is a new portable, size- and load-time-efficient format suitable for compilation to the web. </p>
 
-					<ul>
-						<li>manual memory management</li>
-						<li>Type consistency</li>
-						<li>but still JavaScript - we can do better</li>
-					</ul>
-					<aside class="notes">
-						<p>
-							asm.js vznikol ako projekt v spolupraci Unreal enginu a Firefoxu, ako demonstracia ze sa da 
-							Je to len subset JavaScriptu co znamena ze je to javascript ktory pouziva len obmedzenu cast vlastnosti. <br>
-							Primarne vznikol ako ciel pre kompilaciu z staticky typovych jazykov ako C/C++, ktore vedia ovladat pamat. <br>
-							Samozrejme casom ludia zacali prekladat aj ine jazyky, tym ze si svoje interpretery tiez skompilovali z Ccka do asm.
-						</p>
-					</aside>
-				</section>
+						<ul>
+							<li>Efficient and fast</li>
+							<li>Safe</li>
+							<li>Open and debuggable</li>
+							<li>Part of the open web platform</li>
+						</ul>
+						<aside class="notes">
+							<p>
+								Neda sa hovorit o WebAssembly bez toho aby sa nespomenuli 4 hlavne ciele. <br>
+								Cielom je schopnost execuovat kod 100% nativnej rychlosti. <br>
+								Taktiez co sa tyka velkosti binarnych suborov aby boli male a rychle na stiahnutie
+							</p>
+							<p>
+								WASM je navrhnuty tak aby bezal sandboxnuty a dodrziaval vsetky bezpecnostne prvky, ktore browsre dodrziavaju doteraz.
+							</p>
+							<p>
+								WebAssembly je navrhnutý tak, aby v textovom formáte pre debugging, testovanie, experimentovanie, optimalizáciu, učenie, učenie a písanie programov ručne. <br>
+								Tento format pripomina LISP :)
+							</p>
+						</aside>
+					</section>
 
-				<section>
-					<h2>WebAssembly</h2>
-
-					<p> is a new portable, size- and load-time-efficient format suitable for compilation to the web. </p>
-
-					<ul>
-
-					</ul>
-					<aside class="notes">
-						<p>
-							
-						</p>
-					</aside>
+					<section>
+						<pre><code data-trim data-noescape>
+	;; simple.wasm
+	(module
+	(func $i (import "imports" "i") (param i32))
+	(func (export "e")
+		i32.const 42
+		call $i))
+						</code></pre>
+					</section>
 				</section>
 			</div>
 		</div>
