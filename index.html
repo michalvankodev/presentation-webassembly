@@ -46,45 +46,121 @@
 						</p>
 					</aside>
 				</section>
-				<section>
-					<section>
-						<h2>Assembly?</h2>
 
+				<section id="web-beyond-applications">
+					<h3>Web beyond web-applications</h3>
+					<ul>
+						<li>Game engines</li>
+						<li>VR / AR</li>
+						<li>Artificial inteligence</li>
+						<li>Image / Video processing</li>
+						<li>Image recognition</li>
+						<li>Scientific visualization and simulation</li>
+					</ul>
+
+					<aside class="notes">
 						<p>
-							Why / Do we need <em>Assembly</em> on the web?
+							Ludia zacali na internete vykonavat viac a viac taskov na ktore webova platforma nieje pripravena. <br>
+							Unity a Unreal Engines sa rozhodli ze chcu spristupnit svoje hry aj bezne na internete. <br>
+							Virtualna a Upravena realita otvara vela novych moznosti a web je genialne miesto pre jednoduchy pristup. <br>
+							Dokonca sa nasli ludia ktory skompilovali cely operacny system a nahodili ho ako webstranku.
 						</p>
+					</aside>
+				</section>
 
-						<aside class="notes">
-							Overit znalost publika o Assamblery. ;)
-						</aside>
-					</section>
-					<section>
-						<h2>Assembly</h2>
+				<section id="web-limits">
+					<h3>Web limits</h3>
+					<p>
+						On web we can use any language as long as it is <strong><em>JavaScript</em></strong>.
+					</p>
 
-						<ul>
-							<li><b>low-level</b>- machine instruction</li>
-							<li>every architecture has a different set of instructions</li>
-						</ul>
-
-						<aside class="notes">
-							Assembler is low-level programming language for computers
-							, in which there is a <b>very strong (generally one-to-one)</b>
-							correspondence between the language and the architecture's machine code instructions.
-						</aside>
-					</section>
+					<ul>
+						<li>High level</li>
+						<li>No threads</li>
+						<li>Garbage collected</li>
+						<li>No binaries</li>
+					</ul>
+					<aside class="notes">
+						<p>
+							Webove aplikacie sa tvoria vo vela roznych jazykoch. Vsetky sa vsak compiluju do JavaScriptu. <br>
+							Po tazkom hladani ze kolko ich je tak som nasiel zoznam 375. takych jazykov.
+						</p>
+						<p>
+							Hlavnymi nevyhodami jazyka su ze je Garbage collected a ze nema ziadnu binarnu reprezentaciu (nekompiluje sa). <br>
+							Neviete vyuzit plny potencial procesora kedze nema ziadne thready <br>
+							Nedokazeme ovladat pamat. GC sa moze naskytnut hockedy a moze sposobit sekanie <br>
+							Ziadna binarna reprezentacia znamena ze kod ktory sa stiahne sa musi natiahnut a skompilovat nasledne u klienta. Co tiez trva nejaky cas.
+						</p>
+					</aside>
 				</section>
 				<section>
-					<h2>Web</h2>
+					<h2>Assembly</h2>
 
-					<p>
-						<strong>1990</strong> used for sharing documents
-					</p>
-					<p>
-						<strong>2017</strong> you name it
-					</p>
+					<ul>
+						<li><b>low-level</b>- machine instruction</li>
+						<li>every architecture has a different set of instructions</li>
+					</ul>
+
 					<aside class="notes">
-						Hry, aplikacie, socialna interakcia, bankovnictvo, shopping
-						navigacia, mapy, TODO DOPLNIT
+						Assembler is low-level programming language for computers
+						, in which there is a <b>very strong (generally one-to-one)</b>
+						correspondence between the language and the architecture's machine code instructions.
+					</aside>
+				</section>
+
+				<section>
+					<h2>asm.js</h2>
+
+					<p> An extraordinarily optimizable, low-level subset of JavaScript </p>
+
+					<ul>
+						<li>manual memory management</li>
+						<li>Type consistency</li>
+						<li>but still JavaScript - we can do better</li>
+					</ul>
+					<aside class="notes">
+						<p>
+							asm.js vznikol ako projekt v spolupraci Unreal enginu a Firefoxu, ako demonstracia ze sa da 
+							Je to len subset JavaScriptu co znamena ze je to javascript ktory pouziva len obmedzenu cast vlastnosti. <br>
+							Primarne vznikol ako ciel pre kompilaciu z staticky typovych jazykov ako C/C++, ktore vedia ovladat pamat. <br>
+							Samozrejme casom ludia zacali prekladat aj ine jazyky, tym ze si svoje interpretery tiez skompilovali z Ccka do asm. <br>
+							Vykon okolo 65% oproti native.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>asm.js</h2>
+
+					<p> An extraordinarily optimizable, low-level subset of JavaScript </p>
+
+					<ul>
+						<li>manual memory management</li>
+						<li>Type consistency</li>
+						<li>but still JavaScript - we can do better</li>
+					</ul>
+					<aside class="notes">
+						<p>
+							asm.js vznikol ako projekt v spolupraci Unreal enginu a Firefoxu, ako demonstracia ze sa da 
+							Je to len subset JavaScriptu co znamena ze je to javascript ktory pouziva len obmedzenu cast vlastnosti. <br>
+							Primarne vznikol ako ciel pre kompilaciu z staticky typovych jazykov ako C/C++, ktore vedia ovladat pamat. <br>
+							Samozrejme casom ludia zacali prekladat aj ine jazyky, tym ze si svoje interpretery tiez skompilovali z Ccka do asm.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>WebAssembly</h2>
+
+					<p> is a new portable, size- and load-time-efficient format suitable for compilation to the web. </p>
+
+					<ul>
+
+					</ul>
+					<aside class="notes">
+						<p>
+							
+						</p>
 					</aside>
 				</section>
 			</div>
