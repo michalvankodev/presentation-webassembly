@@ -168,6 +168,137 @@
 						</code></pre>
 					</section>
 				</section>
+
+				<section>
+					<h3>Roadmap</h3>
+
+					<ol>
+						<li>MVP (release candidate) and JS API which are implemented</li>
+						<li>
+							Tooling support <br>
+							<ul>
+								<li>Editors</li>
+								<li>Compilers</li>
+								<li>Debuggers</li>
+								<li>Profilers</li>
+							</ul>
+						</li>
+						<li>Threads</li>
+						<li>SIMD</li>
+						<li>Zero-cost Exception Handling</li>
+						<li>Feature testing</li>
+					</ol>
+
+					<aside class="notes">
+						<p>
+							MVP faza je dostupna na testing a mala by byt uzavreta v Q1 2017. <br>
+							Nasledne by mal byt WASM dostupny by default vo vsetkych browsroch. Chrome 58 (do pol roka)
+						</p>
+						<p> 
+							Pred 3 dnami sa spustilo hlasovanie o logo WASM. 
+						</p>
+						<p> 
+							Tooling support: 
+							<ul>
+								<li>Editors,</li>
+								<li> Compilers (C#, Go, Rust) by mali vediet spustat WASM, Virtualne Machiny pre jazyky ako Python Bash</li>
+								<li> Debuggers - Integracia browsrou cez source mapy, Pre ostatne platformy treba dokoncit standard o tom ako debug formate, preruseni behu a inspekcii stavu.</li>
+							</ul>
+						</p>
+						<p> 
+							Feature testing: Tak ako aj browsre rozsiruju moznosti tak aj WASM sa bude vyvijat a je treba vediet ci dany browser podporuje nove featury WASM.
+						</p>
+					</aside>
+				</section>
+
+				<section>
+					<h3>Proposals</h3>
+
+					<ul>
+						<li>Finer-grained control over memory</li>
+						<li>Large page support</li>
+						<li>More expressive control flow</li>
+						<li>DOM, Web API integration</li>
+						<li>Coroutines</li>
+						<li>Multiprocess support</li>
+						<li>Streaming Compilation</li>
+					</ul>
+					<aside class="notes">
+						<p>
+							Navrhy ktore budu implementovane ak bude o ne zaujem od developerov.
+						</p>
+					<ul>
+						<li>Finer-grained control over memory- Poskytnut bezpecnu ale priamu kontrolu nad pamatou od Operacneho systemu</li>
+						<li>Large page support - Stranky ktore by mohli mat aj 16 GiB, samozrejme ak user akceptuje</li>
+						<li>More expressive control flow - Pridat prikazy ako napriklad goto pre lepsiu podporu inych jazykov ktore vyuzivaju najme tieto prikazy na optimalizaciu.</li>
+						<li>DOM, Web API integration - Referencovat DOM objekty priamo z WASM, Volat WebAPI priamo z WASM</li>
+						<li>Coroutines - C++ eventualne dostane Couroutines, ostatne jazyky (Go) su na nich zalozene.</li>
+						<li>Multiprocess support, Spustat nove processy, a hlavne komunikacia medzi procesmi</li>
+						<li>Streaming Compilation, Binarny format WASM je navrhnuty tak aby sa dal dekodovat pocas nacitavania. MVP vsak ale potrebuje na exekuciu WASM JavaScript API.</li>
+					</ul>
+					</aside>
+				</section>
+				<section>
+
+					<section>
+						<h3>How to</h3>
+
+						<p><strong><em>Emscripten</em></strong> is an Open Source LLVM to JavaScript compiler.</p>
+						<p>With <em>Emscripten</em> you can compile code that can be translated into <strong>LLVM</strong> bitcode into <strike>JavaScript</strike> WASM</p>
+
+						<aside class="notes">
+							<p>
+								Pomocou Emscriptenu kompilujeme hocjaky kod ktory sa preklada do LLVM do WASM. <br>
+								To znamena ze vacsinu jazykov ktore sa pouzivaju na systemove programovanie ako (C C++, Rust).
+							</p>
+						</aside>
+					</section>
+
+					<section>
+						<pre><code data-trim data-noescape>
+	#include &lt;stdio.h&gt;
+
+	int main() {
+		printf("hello, world!\n");
+		return 0;
+	}
+						</code></pre>
+						<pre><code data-trim data-noescape>
+./emcc tests/hello_world.c
+						</code></pre>
+
+						<pre><code>
+node a.out.js
+						</code></pre>
+						<aside class="notes">
+							JS subor obsahuje JS potrebny na nacitanie vygenerovaneho WASM suboru ;)
+						</aside>
+					</section>
+					<section>
+						<pre><code data-trim data-noescape>				
+$ rustup target add wasm32-unknown-emscripten
+$ echo 'fn main() { println!("Hello, Emscripten!"); }' > hello.rs
+$ rustc --target=wasm32-unknown-emscripten hello.rs
+$ node hello.js
+						</code></pre>
+					</section>
+
+					<section>
+						<pre><code data-trim data-noescape>	
+fetch('simple.wasm')
+	.then(response => response.arrayBuffer())
+	.then(bytes => instantiate(bytes, importObject))
+	.then(instance => instance.exports.e());
+						</code></pre>
+					</section>
+				</section>
+
+				<section id="demo">
+					<h3>DEMO</h3>
+					<iframe src="http://webassembly.org/demo/"></iframe>
+				</section>
+
+				
 			</div>
 		</div>
 
